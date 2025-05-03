@@ -14,9 +14,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->float('discount');
             $table->float('total');
-            $table->srting('payment_method'); // 1 => cod
-            $table->srting('payment_status'); // 1 => paid, 2 => unpaid
-            $table->srting('status'); // 1 => cancelled, 2 => delivered, 3 => new, 4 => process
+            $table->string('payment_method'); // 1 => cod
+            $table->string('payment_status'); // 1 => paid, 2 => unpaid
+            $table->string('status'); // 1 => cancelled, 2 => delivered, 3 => new, 4 => process
             $table->timestamps();
         });
     }

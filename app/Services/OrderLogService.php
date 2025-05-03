@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Order;
 use App\Models\OrderLog;
 use Illuminate\Support\Collection;
 
@@ -14,16 +15,49 @@ class OrderLogService
             ->get();
     }
 
-    public function create(array $data): OrderLog
+    public function create(array $data): Order
     {
-        return OrderLog::create($data);
+        $order = Order::create($data);
+
+        // Optional: log initial status or payment_status
+        OrderLog::create([
+            'order_id' => $order->id,
+            'type' => 'status', // or 'payment_status' depending on what you're tracking
+            'status' => $order->status, // e.g., 'new'
+            'payment_status' => $order->payment_status,
+        ]);
+
+        return $order;
     }
 
-    public function update(OrderLog $orderLog, array $data): OrderLog
+    public function update(Order $order, array $data): Order
     {
-        $orderLog->update($data);
-        return $orderLog;
+        $originalStatus = $order->status;
+        $originalPaymentStatus = $order->payment_status;
+
+        $order->update($data);
+
+        // Check if `status` changed
+        if (isset($data['status']) && $data['status'] !== $originalStatus) {
+            OrderLog::create([
+                'order_id' => $order->id,
+                'type' => 'status',
+                'status' => $data['status'],
+            ]);
+        }
+
+        // Check if `payment_status` changed
+        if (isset($data['payment_status']) && $data['payment_status'] !== $originalPaymentStatus) {
+            OrderLog::create([
+                'order_id' => $order->id,
+                'type' => 'payment_status',
+                'payment_status' => $data['payment_status'],
+            ]);
+        }
+
+        return $order;
     }
+
 
     public function delete(OrderLog $orderLog): void
     {

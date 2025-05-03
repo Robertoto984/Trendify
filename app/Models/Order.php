@@ -41,4 +41,9 @@ class Order extends Model
     {
         return $this->hasMany(OrderDetails::class);
     }
+
+    public function orderLogs()
+    {
+        return $this->hasMany(OrderLog::class);
+    }
 }
