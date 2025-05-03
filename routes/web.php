@@ -27,4 +27,4 @@ Route::resource('reviews', ReviewController::class);
 Route::resource('carts', CartController::class);
 Route::resource('banners', BannerController::class);
 Route::resource('settings', SettingController::class);
-Route::resource('order_logs', OrderLogController::class);
+Route::resource('order-logs', OrderLogController::class);
