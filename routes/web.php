@@ -1,21 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\SettingController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\OrderLogController;
-use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\OrderDetailsController;
-use App\Http\Controllers\ShippingAddressController;
+use App\Http\Controllers\{
+    CartController,
+    OrderController,
+    BannerController,
+    ReviewController,
+    ProductController,
+    SettingController,
+    CategoryController,
+    OrderLogController,
+    DepartmentController,
+    OrderDetailsController,
+    ShippingAddressController
+};
+
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 Route::resource('departments', DepartmentController::class);
 Route::resource('categories', CategoryController::class);
