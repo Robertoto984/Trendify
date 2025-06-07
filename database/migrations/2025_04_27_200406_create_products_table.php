@@ -13,12 +13,8 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories');
             $table->string('name');
             $table->text('description');
-            $table->float('price');
-            $table->float('discount')->nullable();
             $table->boolean('is_featured')->default(0);
             $table->boolean('is_active')->default(1);
-            $table->integer('stock')->default(1);
-            $table->string('photo');
             $table->timestamps();
         });
     }

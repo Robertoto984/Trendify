@@ -4,12 +4,13 @@ namespace App\Services;
 
 use App\Models\Department;
 use Illuminate\Support\Collection;
+use Exception;
 
 class DepartmentService
 {
     public function getAll(): Collection
     {
-        return Department::select('id', 'name');
+        return Department::select('id', 'name', 'created_at')->get();
     }
 
     public function create(array $data): Department
@@ -23,8 +24,13 @@ class DepartmentService
         return $department;
     }
 
-    public function delete(Department $department): void
+    public function delete(Department $department): bool
     {
+        if ($department->categories()->exists()) {
+            return false;
+        }
+
         $department->delete();
+        return true;
     }
 }

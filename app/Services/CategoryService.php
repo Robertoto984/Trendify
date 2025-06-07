@@ -9,7 +9,7 @@ class CategoryService
 {
     public function all(): Collection
     {
-        return Category::select('id', 'department_id', 'name', 'is_active')
+        return Category::select('id', 'department_id', 'name', 'is_active', 'created_at')
             ->with(['department:id,name'])
             ->get();
     }
@@ -25,8 +25,13 @@ class CategoryService
         return $category;
     }
 
-    public function delete(Category $category): void
+    public function delete(Category $category): bool
     {
+        if ($category->products()->exists()) {
+            return false;
+        }
+
         $category->delete();
+        return true;
     }
 }

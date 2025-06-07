@@ -17,12 +17,9 @@ class UpdateProductRequest extends FormRequest
             'category_id' => 'required|exists:categories,id',
             'name' => 'required|string|max:255',
             'description' => 'required|string',
-            'price' => 'required|numeric|min:0',
-            'discount' => 'nullable|numeric|min:0',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
-            'stock' => 'required|integer|min:0',
-            'photo' => 'nullable|string|max:255',
+            'featured_image_id' => ['nullable', 'exists:images,id'],
         ];
     }
 }

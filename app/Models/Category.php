@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\HasStatus;
 
 class Category extends Model
 {
+    use HasStatus;
+
     protected $fillable = ['department_id', 'name', 'is_active'];
 
     public function department()
