@@ -45,10 +45,8 @@
             </div>
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
-                    <a href="#" class="search-switch"><img src="{{ asset("assets/front/img/icon/search.png") }}" alt=""></a>
-                    <a href="#"><img src="{{ asset("assets/front/img/icon/heart.png") }}" alt=""></a>
-                    <a href=""><img src="{{ asset("assets/front/img/icon/cart.png") }}" alt=""> <span>0</span></a>
-                    <div class="price">$0.00</div>
+                    <a href=""><img src="{{ asset("assets/front/img/icon/cart.png") }}" alt=""> <span>{{ count(session('cart', [])) }}</span></a>
+                    <div class="price">{{ array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, session('cart', []))) }}</div>
                 </div>
             </div>
         </div>

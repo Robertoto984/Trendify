@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Color;
-use App\Services\ColorService;
+use App\Services\Backend\ColorService;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Color\StoreColorRequest;
-use App\Http\Requests\Color\UpdateColorRequest;
+use App\Http\Requests\Color\{StoreColorRequest, UpdateColorRequest};
 
 class ColorController extends Controller
 {

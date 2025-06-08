@@ -19,8 +19,27 @@ class Product extends Model
         'discount',
         'is_featured',
         'is_active',
+        'is_new',
         'stock',
     ];
+
+    public function getUniqueColorsAttribute()
+    {
+        return $this->variants
+            ->pluck('color')
+            ->filter()
+            ->unique('id')
+            ->values();
+    }
+
+    public function getUniqueSizesAttribute()
+    {
+        return $this->variants
+            ->pluck('size')
+            ->filter()
+            ->unique('id')
+            ->values();
+    }
 
     public function category()
     {
@@ -48,27 +67,6 @@ class Product extends Model
         return $this->hasMany(ProductVariant::class);
     }
 
-    public function uniqueColors()
-    {
-        return $this->variants()
-            ->with('color')
-            ->get()
-            ->pluck('color')
-            ->unique('id')
-            ->values();
-    }
-
-
-
-    public function uniqueSizes()
-    {
-        return $this->variants()
-            ->with('size')
-            ->get()
-            ->pluck('size')
-            ->unique('id')
-            ->values();
-    }
 
     public function storeHouses()
     {

@@ -23,6 +23,7 @@
                         <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">الاسم</th>
                         <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2">الفئة</th>
                         <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2">الحالة</th>
+                        <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2">العلامات</th>
                         <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">الصورة</th>
                         <th class="text-secondary text-center opacity-7">الإجراءات</th>
                     </tr>
@@ -36,6 +37,14 @@
                             <span class="badge badge-sm {{ $pro->status_badge_class }}">
                                 {{ $pro->status_label }}
                             </span>
+                        </td>
+                        <td class="align-middle text-center">
+                            @if($pro->is_featured)
+                                <span class="badge badge-sm bg-gradient-primary">تخفيضات</span>
+                            @endif
+                            @if($pro->is_new)
+                                <span class="badge badge-sm bg-gradient-success">جديد</span>
+                            @endif
                         </td>
                         <td class="align-middle text-center">
                             <img src="{{ asset('storage/' . $pro->featuredImage->path) }}"

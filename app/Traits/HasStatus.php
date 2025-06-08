@@ -22,4 +22,20 @@ trait HasStatus
                 : 'bg-gradient-danger'
         );
     }
+
+    public function isActiveLabel(): Attribute
+    {
+        return new Attribute(
+            get: fn() => $this->status ? 'مفعلة' : 'غير مفعلة'
+        );
+    }
+
+    public function isActiveBadgeClass(): Attribute
+    {
+        return new Attribute(
+            get: fn() => $this->status
+                ? 'bg-gradient-success'
+                : 'bg-gradient-danger'
+        );
+    }
 }

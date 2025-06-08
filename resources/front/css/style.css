@@ -133,8 +133,8 @@ ol {
 
 .set-bg {
 	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: top center;
+	background-size: contain;
+	background-position: top right;
 }
 
 .spad {
@@ -1748,7 +1748,6 @@ ol {
 	top: -3px;
 	height: 36px;
 	width: 36px;
-	border: 1px solid #e5e5e5;
 	content: "";
 	border-radius: 50%;
 }

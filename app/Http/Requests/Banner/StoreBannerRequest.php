@@ -10,9 +10,9 @@ class StoreBannerRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'photo' => 'nullable|string',
+            'image' => ['image', 'max:2048'],
             'description' => 'nullable|string',
-            'status' => 'required|boolean',
+            'status' => ['boolean'],
         ];
     }
 }

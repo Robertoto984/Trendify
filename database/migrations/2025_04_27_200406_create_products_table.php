@@ -15,6 +15,7 @@ return new class extends Migration
             $table->text('description');
             $table->boolean('is_featured')->default(0);
             $table->boolean('is_active')->default(1);
+            $table->boolean('is_new')->default(0);
             $table->timestamps();
         });
     }

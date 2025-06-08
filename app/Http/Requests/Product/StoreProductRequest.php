@@ -19,6 +19,7 @@ class StoreProductRequest extends FormRequest
             'description' => ['nullable', 'string'],
             'is_featured' => ['boolean'],
             'is_active' => ['boolean'],
+            'is_new' => ['boolean'],
             'images.*' => ['image', 'max:2048'],
         ];
     }

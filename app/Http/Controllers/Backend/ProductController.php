@@ -3,19 +3,13 @@
 namespace App\Http\Controllers\Backend;
 
 use Exception;
-use App\Models\Size;
-use App\Models\Color;
-use App\Models\Image;
-use App\Models\Product;
-use App\Models\Category;
+use App\Models\{Size, Color, Image, Product, Category};
 use App\Traits\WebResponse;
 use Illuminate\Http\Request;
-use App\Services\ProductService;
-use Illuminate\Support\Facades\Log;
+use App\Services\Backend\ProductService;
+use Illuminate\Support\Facades\{Log, Storage};
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\Product\StoreProductRequest;
-use App\Http\Requests\Product\UpdateProductRequest;
+use App\Http\Requests\Product\{StoreProductRequest, UpdateProductRequest};
 
 class ProductController extends Controller
 {
@@ -103,8 +97,23 @@ class ProductController extends Controller
 
     public function filterByCategory(Request $request)
     {
-        $products = Product::with(['featuredImage', 'prices', 'colors', 'sizes'])
+        $products = Product::with(['featuredImage', 'prices', 'variants.color', 'variants.size'])
             ->where('category_id', $request->category_id)->get();
+        $view = view('products-list', compact('products'))->render();
+
+        return response()->json(['html' => $view]);
+    }
+
+    public function filterFeaturedOrNew(Request $request)
+    {
+        $type = $request->type;
+
+        $products = Product::with(['featuredImage', 'prices', 'variants.color', 'variants.size'])
+            ->when($type === 'featured', fn($q) => $q->where('is_featured', true))
+            ->when($type === 'new', fn($q) => $q->where('is_new', true))
+            ->where('is_active', true)
+            ->get();
+
         $view = view('products-list', compact('products'))->render();
 
         return response()->json(['html' => $view]);

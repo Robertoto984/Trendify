@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\StoreHouse;
 use Illuminate\Support\Facades\DB;
-use App\Services\StoreHouseService;
+use App\Services\Backend\StoreHouseService;
 use App\Http\Controllers\Controller;
 use App\Models\{Product, Color, Size};
 use App\Http\Requests\StoreHouse\StoreRequest;

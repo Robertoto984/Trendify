@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Backend;
 
 use App\Models\Size;
 use Illuminate\Support\Collection;

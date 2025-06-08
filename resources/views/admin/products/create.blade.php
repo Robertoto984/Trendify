@@ -65,14 +65,31 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group mb-3">
-                            <label for="is_featured">الميزة</label>
+                            <label for="is_featured">تخفيضات</label>
                             <select name="is_featured"
                                     id="is_featured"
                                     class="custom-form-select @error('is_featured') is-invalid @enderror">
-                                <option value="1" {{ old('is_featured','0') === '1' ? 'selected' : '' }}>مميز</option>
-                                <option value="0" {{ old('is_featured','0') === '0' ? 'selected' : '' }}>غير مميز</option>
+                                <option value="1" {{ old('is_featured','0') === '1' ? 'selected' : '' }}>نعم</option>
+                                <option value="0" {{ old('is_featured','0') === '0' ? 'selected' : '' }}>لا</option>
                             </select>
                             @error('is_featured')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label for="is_new">منتج جديد</label>
+                            <select name="is_new"
+                                    id="is_new"
+                                    class="custom-form-select @error('is_new') is-invalid @enderror">
+                                <option value="1" {{ old('is_new','0') === '1' ? 'selected' : '' }}>نعم</option>
+                                <option value="0" {{ old('is_new','0') === '0' ? 'selected' : '' }}>لا</option>
+                            </select>
+                            @error('is_new')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>

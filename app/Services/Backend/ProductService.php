@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Backend;
 
 use Exception;
 use App\Models\Product;
@@ -14,7 +14,7 @@ class ProductService
 {
     public function all()
     {
-        return Product::select('id', 'category_id', 'name', 'is_featured', 'is_active')
+        return Product::select('id', 'category_id', 'name', 'is_featured', 'is_active', 'is_new')
             ->with([
                 'category:id,name',
                 'featuredImage'
@@ -36,6 +36,7 @@ class ProductService
                     'description'  => $productData['description'],
                     'is_featured'  => $productData['is_featured'],
                     'is_active'    => $productData['is_active'],
+                    'is_new'       => $productData['is_new'] ?? false,
                 ]);
 
                 if (!empty($images)) {

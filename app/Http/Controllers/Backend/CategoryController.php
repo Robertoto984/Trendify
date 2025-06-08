@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Category;
 use App\Models\Department;
 use App\Traits\WebResponse;
-use App\Services\CategoryService;
+use App\Services\Backend\CategoryService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;

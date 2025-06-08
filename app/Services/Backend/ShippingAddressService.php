@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Backend;
 
 use App\Models\ShippingAddress;
 use Illuminate\Support\Collection;

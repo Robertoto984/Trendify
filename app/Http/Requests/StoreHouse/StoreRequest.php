@@ -27,11 +27,11 @@ class StoreRequest extends FormRequest
         } else {
             $rules += [
                 'variants' => 'required|array|min:1',
-                'variants.*.color_id' => 'nullable|exists:colors,id',
-                'variants.*.size_id' => 'nullable|exists:sizes,id',
-                'variants.*.purchase_price' => 'required|numeric|min:0',
-                'variants.*.sale_price' => 'required|numeric|min:0',
-                'variants.*.qty' => 'required|numeric|min:0',
+                'variants.*.color_id' => 'sometimes|nullable|exists:colors,id',
+                'variants.*.size_id' => 'sometimes|nullable|exists:sizes,id',
+                'variants.*.purchase_price' => 'nullable|numeric|min:0',
+                'variants.*.sale_price' => 'nullable|numeric|min:0',
+                'variants.*.qty' => 'nullable|numeric|min:0',
             ];
         }
 

@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Department;
 use App\Traits\WebResponse;
-use App\Services\DepartmentService;
+use App\Services\Backend\DepartmentService;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Department\StoreDepartmentRequest;
-use App\Http\Requests\Department\UpdateDepartmentRequest;
+use App\Http\Requests\Department\{StoreDepartmentRequest, UpdateDepartmentRequest};
 
 class DepartmentController extends Controller
 {

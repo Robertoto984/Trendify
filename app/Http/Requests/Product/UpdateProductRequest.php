@@ -19,6 +19,7 @@ class UpdateProductRequest extends FormRequest
             'description' => 'required|string',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
+            'is_new' => 'boolean',
             'featured_image_id' => ['nullable', 'exists:images,id'],
         ];
     }

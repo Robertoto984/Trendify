@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Size;
-use App\Services\SizeService;
+use App\Services\Backend\SizeService;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Size\StoreSizeRequest;
-use App\Http\Requests\Size\UpdateSizeRequest;
+use App\Http\Requests\Size\{StoreSizeRequest, UpdateSizeRequest};
 
 class SizeController extends Controller
 {

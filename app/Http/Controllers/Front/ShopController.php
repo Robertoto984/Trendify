@@ -19,6 +19,6 @@ class ShopController extends Controller
         $category = Category::with('products')->findOrFail($id);
         $products = $category->products;
 
-        return view('partials.product-list', compact('products'));
+        return view('product-list', compact('products'));
     }
 }

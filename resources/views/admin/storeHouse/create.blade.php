@@ -139,7 +139,7 @@
         const html = `
         <div class="row variant-row mb-2">
             <div class="col-md-2">
-                <select name="variants[${index}][color_id]" class="form-control" required>
+                <select name="variants[${index}][color_id]" class="form-control">
                     <option value="">اختر اللون</option>
                     @foreach($colors as $color)
                         <option value="{{ $color->id }}">{{ $color->name }}</option>
@@ -147,7 +147,7 @@
                 </select>
             </div>
             <div class="col-md-2">
-                <select name="variants[${index}][size_id]" class="form-control" required>
+                <select name="variants[${index}][size_id]" class="form-control">
                     <option value="">اختر المقاس</option>
                     @foreach($sizes as $size)
                         <option value="{{ $size->id }}">{{ $size->name }}</option>
@@ -155,13 +155,13 @@
                 </select>
             </div>
             <div class="col-md-2">
-                <input type="number" name="variants[${index}][purchase_price]" class="form-control" placeholder="سعر الشراء" required>
+                <input type="number" name="variants[${index}][purchase_price]" class="form-control" placeholder="سعر الشراء">
             </div>
             <div class="col-md-2">
-                <input type="number" name="variants[${index}][sale_price]" class="form-control" placeholder="سعر المبيع" required>
+                <input type="number" name="variants[${index}][sale_price]" class="form-control" placeholder="سعر المبيع">
             </div>
             <div class="col-md-2">
-                <input type="number" name="variants[${index}][qty]" class="form-control" placeholder="الكمية" required>
+                <input type="number" name="variants[${index}][qty]" class="form-control" placeholder="الكمية">
             </div>
             <div class="col-md-2">
                 <button type="button" class="btn btn-danger btn-sm" onclick="this.closest('.variant-row').remove()">حذف</button>
