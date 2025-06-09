@@ -13,12 +13,12 @@
                             <a href="#">{{__('messages.Signin')}}</a>
                         </div>
                         <div class="header__top__hover">
-                            <span>En <i class="arrow_carrot-down"></i></span>
+                            <span>{{ app()->getLocale() == 'ar' ? 'ع' : 'En' }} <i class="arrow_carrot-down"></i></span>
                             <ul>
-                                <li>En</li>
-                                <li>ع</li>
+                                <li><a style="color:#111;" href="{{ route('lang.switch', 'en') }}">En</a></li>
+                                <li><a style="color:#111;" href="{{ route('lang.switch', 'ar') }}">ع</a></li>
                             </ul>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -36,10 +36,19 @@
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="{{route('home')}}">{{__('messages.Home')}}</a></li>
-                        <li><a href="{{route('shop')}}">{{__('messages.Shop')}}</a></li>
-                        <li><a href="">{{__('messages.About Us')}}</a></li>
-                        <li><a href="">{{__('messages.Contact')}}</a></li>
+                        <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
+                            <a href="{{ route('home') }}">{{ __('messages.Home') }}</a>
+                        </li>
+                        <li class="{{ request()->routeIs('shop') ? 'active' : '' }}">
+                            <a href="{{ route('shop') }}">{{ __('messages.Shop') }}</a>
+                        </li>
+                        <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
+                            <a href="{{ route('home') }}">{{ __('messages.About Us') }}</a>
+                        </li>
+                        <li class="{{ request()->routeIs('contact') ? 'active' : '' }}">
+                            <a href="{{ route('home') }}">{{ __('messages.Contact') }}</a>
+                        </li>
+                        
                     </ul>
                 </nav>
             </div>

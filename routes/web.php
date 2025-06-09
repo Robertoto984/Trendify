@@ -36,6 +36,15 @@ Route::get('/filter-products-by-category', [ProductController::class, 'filterByC
 Route::get('/filter-products-by-feature', [ProductController::class, 'filterFeaturedOrNew'])->name('filter.products.type');
 Route::get('/product/show/{product}', [ProductController::class, 'show'])->name('product.show');
 
+Route::get('lang/{locale}', function ($locale) {
+    if (!in_array($locale, ['en', 'ar'])) {
+        abort(400);
+    }
+
+    session(['locale' => $locale]);
+    return redirect()->back();
+})->name('lang.switch');
+
 Route::prefix('admin')->as('admin.')->group(function () {
 
     Route::controller(DashboardController::class)->group(function () {
