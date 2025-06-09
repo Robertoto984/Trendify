@@ -4,13 +4,13 @@
             <div class="row">
                 <div class="col-lg-6 col-md-7">
                     <div class="header__top__left">
-                        <p>Free shipping, 30-day return or refund guarantee.</p>
+                        <p>{{__('messages.Nav title')}}</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-5">
                     <div class="header__top__right">
                         <div class="header__top__links">
-                            <a href="#">Sign in</a>
+                            <a href="#">{{__('messages.Signin')}}</a>
                         </div>
                         <div class="header__top__hover">
                             <span>En <i class="arrow_carrot-down"></i></span>
@@ -36,10 +36,10 @@
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="{{route('home')}}">Home</a></li>
-                        <li><a href="{{route('shop')}}">Shop</a></li>
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Contacts</a></li>
+                        <li class="active"><a href="{{route('home')}}">{{__('messages.Home')}}</a></li>
+                        <li><a href="{{route('shop')}}">{{__('messages.Shop')}}</a></li>
+                        <li><a href="">{{__('messages.About Us')}}</a></li>
+                        <li><a href="">{{__('messages.Contact')}}</a></li>
                     </ul>
                 </nav>
             </div>

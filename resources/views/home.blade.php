@@ -84,10 +84,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>اكتشف الجديد أولاً</h2>
+                <h2>{{__('messages.Categories section')}}</h2>
                 <br>
                 <a href="{{ route('shop') }}" style="background-color: #000; color: #fff; padding: 10px 20px; border-radius: 4px; text-decoration: none; display: inline-block;">
-                    تسوّق الآن
+                    {{__('messages.Shop now')}}
                 </a>
             </div>
         </div>
@@ -102,11 +102,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="filter__controls">
-                    <li class="filter-btn active" data-type="featured">تخفيضات</li>
-                    <li class="filter-btn" data-type="new">أحدث المنتجات</li>
+                    <li class="filter-btn active" data-type="featured">{{__('messages.Sale')}}</li>
+                    <li class="filter-btn" data-type="new">{{__('messages.Latest products')}}</li>
                     <li style="background-color: #000; color: #fff; padding: 8px 16px; border-radius: 4px;">
                         <a href="{{ route('shop') }}" style="color: #fff; text-decoration: none; display: block;">
-                            المتجر <span class="arrow_right"></span>
+                            {{__('messages.Shop')}} <span class="arrow_right"></span>
                         </a>
                     </li>
                 </ul>                
