@@ -10,7 +10,21 @@
                 <div class="col-lg-6 col-md-5">
                     <div class="header__top__right">
                         <div class="header__top__links">
-                            <a href="#">{{__('messages.Signin')}}</a>
+                            <div class="header__top__links">
+                                @if(auth()->check())
+                                    <a href="{{ route('user.logout') }}"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                       {{ __('messages.Sign out') }}
+                                    </a>
+                            
+                                    <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                @else
+                                    <a href="{{ route('user.login') }}">{{ __('messages.Signin') }}</a>
+                                @endif
+                            </div>
+                            
                         </div>
                         <div class="header__top__hover">
                             <span>{{ app()->getLocale() == 'ar' ? 'ع' : 'En' }} <i class="arrow_carrot-down"></i></span>
@@ -28,7 +42,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-3">
                 <div class="header__logo">
-                    <a href="./index.html">
+                    <a href="{{route('home')}}">
                         <img src="{{ asset("assets/front/img/logo.png") }}" alt="">
                     </a>
                 </div>

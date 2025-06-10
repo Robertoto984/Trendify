@@ -1,8 +1,8 @@
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-end me-3 rotate-caret" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute start-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html" target="_blank">
-        <span class="me-1 font-weight-bold">Trendify Panel</span>
+      <a class="navbar-brand m-0" href="{{ route('home')}}" target="_blank">
+        <span class="me-1 font-weight-bold">Trendify</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -26,7 +26,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text me-1">الملف الشخصي</span>
+            <span class="nav-link-text me-1">{{__('messages.Profile')}}</span>
           </a>
         </li>
         <li class="nav-item">
@@ -46,7 +46,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text me-1">الأقسام</span>
+            <span class="nav-link-text me-1">{{__('messages.Departments')}}</span>
           </a>
         </li>
         <li class="nav-item">
@@ -66,7 +66,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text me-1">الفئات</span>
+            <span class="nav-link-text me-1">{{__('messages.Categories')}}</span>
           </a>
         </li>
         
@@ -87,7 +87,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text me-1">الألوان</span>
+            <span class="nav-link-text me-1">{{__('messages.Colors')}}</span>
           </a>
         </li>
         <li class="nav-item">
@@ -107,7 +107,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text me-1">وحدات القياس</span>
+            <span class="nav-link-text me-1">{{__('messages.Units')}}</span>
           </a>
         </li>
         <li class="nav-item">
@@ -127,7 +127,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text me-1">المنتجات</span>
+            <span class="nav-link-text me-1">{{__('messages.Products')}}</span>
           </a>
         </li>
         <li class="nav-item">
@@ -147,7 +147,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text me-1">المخازن</span>
+            <span class="nav-link-text me-1">{{__('messages.Stocks')}}</span>
           </a>
         </li>
         <li class="nav-item">
@@ -167,8 +167,16 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text me-1">الصفحة الرئيسية</span>
+            <span class="nav-link-text me-1">{{__('messages.Banners')}}</span>
           </a>
+        </li>
+        <li class="nav-item">
+          <form method="POST" action="{{ route('admin.logout') }}">
+            @csrf
+            <button type="submit" class="nav-link border-0 bg-transparent w-100 text-start d-flex align-items-center">
+                <strong class="nav-link-text me-1">{{__('messages.Sign out')}}</strong>
+            </button>
+          </form>
         </li>
       </ul>
     </div>

@@ -1,5 +1,23 @@
 <?php
 
+// namespace App\Http\Middleware;
+
+// use Closure;
+// use Illuminate\Support\Facades\App;
+// use Illuminate\Support\Facades\Session;
+
+// class SetLocale
+// {
+//     public function handle($request, Closure $next)
+//     {
+//         $locale = Session::get('locale', config('app.locale'));
+//         App::setLocale($locale);
+
+//         return $next($request);
+//     }
+// }
+
+
 namespace App\Http\Middleware;
 
 use Closure;
@@ -10,8 +28,11 @@ class SetLocale
 {
     public function handle($request, Closure $next)
     {
-        $locale = Session::get('locale', config('app.locale'));
-        App::setLocale($locale);
+        if (!Session::has('locale')) {
+            Session::put('locale', config('app.locale'));
+        }
+
+        App::setLocale(Session::get('locale'));
 
         return $next($request);
     }
